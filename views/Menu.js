@@ -13,18 +13,13 @@ const Menu = ({navigation}) => {
         />
         <Text style={globalStyles.titulo2}>Navegar en las siguientes opciones</Text>
         <Button mode="contained" icon="equal" style={globalStyles.boton}
-                onPress={() => navigation.navigate("Fincas")}>
-                Ir a fincas
+                onPress={() => navigation.navigate("Cliente")}>
+                Ir a Clientes
             </Button>
             <Button mode="contained" icon="folder" style={globalStyles.boton}
-                onPress={() => navigation.navigate("Productores")}>
-                Ir a productores
-            </Button>
-            <Button mode="contained" icon="calendar" style={globalStyles.boton}
-                onPress={() => navigation.navigate("Vitacoras")}>
-                Ir a Bitácoras
-            </Button>
-            
+                onPress={() => navigation.navigate("Credito")}>
+                Ir a creditos
+            </Button>            
     </View>
     );
 }

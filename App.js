@@ -2,17 +2,17 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,
 } from 'react-native';
-import Fincas from './views/Fincas';
+import Cliente from './views/Cliente';
 import NuevaFinca from './views/NuevaFinca';
-import DetallesFinca from './views/DetallesFinca';
+import DetalleCliente from './views/DetalleCliente';
 import Menu from './views/Menu';
 import { DefaultTheme,Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Productores from './views/Productores';
-import Vitacoras from './views/Vitacoras';
-import DetallesProductor from './views/DetallesProductor';
-import DetallesVitacora from './views/DetallesVitacora';
+import Credito from './views/Credito';
+import VerCreditos from './views/VerCreditos';
+import CreditoDetalle from './views/CreditoDetalle';
+import DetalleCreditoDetalle from './views/DetalleCreditoDetalle';
 
 const Stack = createStackNavigator();
 
@@ -56,18 +56,18 @@ title:'Menú de navegación'
 
 {/* Apartado para fincas : Ver, Detalles */}
 <Stack.Screen
-name="Fincas"
-component={Fincas}
+name="Cliente"
+component={Cliente}
 options={ ({navigation, route}) => ({
 headerTitleAlign:'center',
 })}
 />
 <Stack.Screen
-name="DetallesFinca"
-component={DetallesFinca}
+name="DetalleCliente"
+component={DetalleCliente}
 options={{
 headerTitleAlign:'center',
-title:"Detalles de la finca"
+title:"Detalles del cliente"
 }}
 />
 <Stack.Screen
@@ -78,45 +78,35 @@ headerTitleAlign:'center',
 title:"Nueva Finca"
 }}
 />
-{/* Fin del apartado de fincas */}
 
-{/* Apartado para productores */}
 <Stack.Screen
-name="Productores"
-component={Productores}
+name="Credito"
+component={Credito}
 options={ ({navigation, route}) => ({
 headerTitleAlign:'center',
 })}
 />
-
 <Stack.Screen
-name="DetallesProductor"
-component={DetallesProductor}
+name="VerCreditos"
+component={VerCreditos}
 options={ ({navigation, route}) => ({
 headerTitleAlign:'center',
 })}
 />
-{/* Fin del apartado de productores */}
-
-{/* Apartado para vitacoras */}
-
 <Stack.Screen
-name="Vitacoras"
-component={Vitacoras}
+name="DetalleCredito"
+component={CreditoDetalle}
 options={ ({navigation, route}) => ({
 headerTitleAlign:'center',
-title:"Bitácotas de asistencia"
 })}
 />
 <Stack.Screen
-name="DetalleVitacora"
-component={DetallesVitacora}
+name="DetalleCreditoDetalle"
+component={DetalleCreditoDetalle}
 options={ ({navigation, route}) => ({
 headerTitleAlign:'center',
-title:"Detalles de bitácoras"
 })}
 />
-{/* Fin del apartado de vitacoras */}
 
 </Stack.Navigator>
 </NavigationContainer>

@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Headline, List, Button, FAB} from 'react-native-paper';
 import globalStyles from '../Styles/global';
 
-const Fincas = ({navigation}) => {
+const Cliente = ({navigation}) => {
 
     //state de la app
     const [fincas, guardarFincas] = useState([]);
@@ -13,7 +13,7 @@ const Fincas = ({navigation}) => {
     useEffect(() => {
         const obtenerClientesApi = async () => {
             try {
-                const resultado = await axios.get('https://murmuring-wave-68820.herokuapp.com/api/fincas');
+                const resultado = await axios.get('http://192.168.0.107:8000/api/clientes');
                 guardarFincas(resultado.data.data)
                 console.log(resultado.data.data)
                 guardarConsultarAPI(false);
@@ -29,28 +29,23 @@ const Fincas = ({navigation}) => {
     return ( 
     <View style={globalStyles.contenedor} >
                         <Image
-        style={{ width: 340, height: 300 }}
-        source={{ uri: "https://abdkfincas.com/wp-content/uploads/2020/09/ABDK_Iconos_ADMINISTRACION-DE-FINCAS.png" }}
+        style={{ width: 340, height: 300}}
+        source={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeQw_GrVfTBaPK16x7RZGds1zy6054yMqIpm_O5OXhGIJrJeXcxRG2YjFK5K1A8TnMw40&usqp=CAU" }}
         />
         {/* <Button icon="plus-circle" onPress={() => navigation.navigate("NuevaFinca",{guardarConsultarAPI})}>Nueva finca</Button> */}
-        <Headline  style={globalStyles.titulo}>{fincas.length > 0 ? "Fincas registradas": "Aun no hay fincas"}</Headline>
+        <Headline  style={globalStyles.titulo}>{fincas.length > 0 ? "Clientes registrados": "Aun no hay clientes"}</Headline>
         <FlatList
             data={fincas}
             keyExtractor={cliente => (cliente.id).toString()}
             renderItem={({item}) => (
             <List.Item
-                title={item.id_finca}
-                description={item.nombre}
-                onPress={() => navigation.navigate("DetallesFinca",{item, guardarConsultarAPI})}
+                title={item.cedula}
+                description={item.nombre_cliente}
+                onPress={() => navigation.navigate("DetalleCliente",{item, guardarConsultarAPI})}
             />
             )}
         />
-        {/* <FAB
-        icon="plus"
-        style={globalStyles.fab}
-        onPress={() => navigation.navigate("NuevoCliente",{guardarConsultarAPI})}
-        /> */}
     </View>
     );
 }
-export default Fincas;
+export default Cliente;
